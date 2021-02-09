@@ -11,10 +11,10 @@ namespace Nez
 		[Flags]
 		enum DirtyType
 		{
-			Clean = 0,
-			PositionDirty = 1,
-			ScaleDirty = 2,
-			RotationDirty = 4
+			Clean,
+			PositionDirty,
+			ScaleDirty,
+			RotationDirty
 		}
 
 		public enum Component

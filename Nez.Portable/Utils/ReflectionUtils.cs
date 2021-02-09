@@ -195,7 +195,7 @@ namespace Nez
 			{
 				foreach (var type in assembly.GetTypes())
 				{
-					if (type.GetAttribute<T>() != null)
+					if (type.GetCustomAttribute<T>() != null)
 						typeList.Add(type);
 				}
 			}

@@ -1,11 +1,12 @@
 ﻿<Project>	
 	<PropertyGroup>
 		<BaseIntermediateOutputPath>obj\$(MSBuildProjectName)</BaseIntermediateOutputPath>
+		<LangVersion>8</LangVersion>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
 	</PropertyGroup>
 	<Import Sdk="Microsoft.NET.Sdk" Project="Sdk.props" />
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <AssemblyName>Nez</AssemblyName>
     <RootNamespace>Nez</RootNamespace>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -25,6 +26,29 @@
 
     <ItemGroup>
       	<None Remove="Content\NezDefaultBMFont.xnb" />
+      	<None Remove="Content\nez\effects\DeferredLighting.mgfxo" />
+      	<None Remove="Content\nez\effects\DeferredSprite.mgfxo" />
+      	<None Remove="Content\nez\effects\transitions\Squares.mgfxo" />
+      	<None Remove="Content\nez\effects\transitions\TextureWipe.mgfxo" />
+      	<None Remove="Content\nez\effects\transitions\Wind.mgfxo" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="Content\nez\effects\DeferredLighting.mgfxo">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Content\nez\effects\DeferredSprite.mgfxo">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Content\nez\effects\transitions\Squares.mgfxo">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Content\nez\effects\transitions\TextureWipe.mgfxo">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Content\nez\effects\transitions\Wind.mgfxo">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
     <ItemGroup>

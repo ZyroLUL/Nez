@@ -45,6 +45,8 @@ namespace Nez.DeferredLighting
 		protected float _radius;
 
 
+		
+
 		public PointLight()
 		{
 			SetRadius(400f);

@@ -149,9 +149,9 @@ namespace Nez.BitmapFonts
 		/// </summary>
 		public Character this[char character] => Characters[character];
 
-		public void Initialize(bool premultiplyAlpha)
+		public void Initialize()
 		{
-			LoadTextures(premultiplyAlpha);
+			LoadTextures();
 			if (Characters.TryGetValue(' ', out var defaultChar))
 			{
 				DefaultCharacter = defaultChar;

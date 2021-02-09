@@ -5,7 +5,6 @@ using System.Text;
 using System.Xml;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Nez.Textures;
 
 
 namespace Nez.BitmapFonts
@@ -313,14 +312,11 @@ namespace Nez.BitmapFonts
 			Kernings = kerningDictionary;
 		}
 
-		void LoadTextures(bool premultiplyAlpha)
+		void LoadTextures()
 		{
 			Textures = new Texture2D[Pages.Length];
 			for (var i = 0; i < Textures.Length; i++)
-			{
-				using (var stream = TitleContainer.OpenStream(Pages[i].Filename))
-					Textures[i] = premultiplyAlpha ? TextureUtils.TextureFromStreamPreMultiplied(stream) : Texture2D.FromStream(Core.GraphicsDevice, stream);
-			}
+				Textures[i] = Texture2D.FromStream(Core.GraphicsDevice, TitleContainer.OpenStream(Pages[i].Filename));
 		}
 	}
 }

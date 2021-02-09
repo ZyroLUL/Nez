@@ -42,6 +42,11 @@ namespace Nez
 		public static bool DebugRenderEnabled = false;
 
 		/// <summary>
+		/// enables/disables running without window
+		/// </summary>
+		public static bool Headless = false;
+
+		/// <summary>
 		/// global access to the graphicsDevice
 		/// </summary>
 		public new static GraphicsDevice GraphicsDevice;
@@ -50,6 +55,8 @@ namespace Nez
 		/// global content manager for loading any assets that should stick around between scenes
 		/// </summary>
 		public new static NezContentManager Content;
+		
+		
 
 		/// <summary>
 		/// default SamplerState used by Materials. Note that this must be set at launch! Changing it after that time will result in only
@@ -106,7 +113,7 @@ namespace Nez
 		CoroutineManager _coroutineManager = new CoroutineManager();
 		TimerManager _timerManager = new TimerManager();
 
-
+		
 		/// <summary>
 		/// The currently active Scene. Note that if set, the Scene will not actually change until the end of the Update
 		/// </summary>
@@ -146,7 +153,8 @@ namespace Nez
 				PreferredBackBufferWidth = width,
 				PreferredBackBufferHeight = height,
 				IsFullScreen = isFullScreen,
-				SynchronizeWithVerticalRetrace = true
+				SynchronizeWithVerticalRetrace = true,
+				PreferHalfPixelOffset = true
 			};
 			graphicsManager.DeviceReset += OnGraphicsDeviceReset;
 			graphicsManager.PreferredDepthStencilFormat = DepthFormat.Depth24Stencil8;
@@ -228,6 +236,7 @@ namespace Nez
 			StartDebugUpdate();
 
 			// update all our systems and global managers
+			//System.Console.WriteLine(gameTime.ElapsedGameTime);
 			Time.Update((float) gameTime.ElapsedGameTime.TotalSeconds);
 			Input.Update();
 
@@ -358,15 +367,15 @@ namespace Nez
 			TimeRuler.Instance.BeginMark("draw", Color.Gold);
 
 			// fps counter
-			_frameCounter++;
-			_frameCounterElapsedTime += elapsedGameTime;
-			if (_frameCounterElapsedTime >= TimeSpan.FromSeconds(1))
-			{
-				var totalMemory = (GC.GetTotalMemory(false) / 1048576f).ToString("F");
-				Window.Title = string.Format("{0} {1} fps - {2} MB", _windowTitle, _frameCounter, totalMemory);
-				_frameCounter = 0;
-				_frameCounterElapsedTime -= TimeSpan.FromSeconds(1);
-			}
+			//_frameCounter++;
+			//_frameCounterElapsedTime += elapsedGameTime;
+			//if (_frameCounterElapsedTime >= TimeSpan.FromSeconds(1))
+			//{
+			//	var totalMemory = (GC.GetTotalMemory(false) / 1048576f).ToString("F");
+			//	Window.Title = string.Format("{0} {1} fps - {2} MB", _windowTitle, _frameCounter, totalMemory);
+			//	_frameCounter = 0;
+			//	_frameCounterElapsedTime -= TimeSpan.FromSeconds(1);
+			//}
 #endif
 		}
 

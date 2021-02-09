@@ -10,8 +10,6 @@ namespace Nez.Tiled
 		public float Opacity { get; set; }
 		public float OffsetX { get; set; }
 		public float OffsetY { get; set; }
-		public float ParallaxFactorX { get; set; }
-		public float ParallaxFactorY { get; set; }
 
 		public int? Width;
 		public int? Height;

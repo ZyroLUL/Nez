@@ -1,3 +1,6 @@
+[CHANGES](/changes.md)
+
+
 ![Nez](Nez.github.io/static/img/logo.svg)
 
 [![Build status](https://ci.appveyor.com/api/projects/status/github/prime31/Nez?branch=master&svg=true)](https://ci.appveyor.com/project/prime31/nez/branch/master)

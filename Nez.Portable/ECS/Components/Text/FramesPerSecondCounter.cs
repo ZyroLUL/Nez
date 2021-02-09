@@ -64,7 +64,7 @@ namespace Nez
 
 		public FramesPerSecondCounter(BitmapFont font, Color color,
 		                              FPSDockPosition dockPosition = FPSDockPosition.TopRight, int maximumSamples = 100)
-			: base(font, string.Empty, Vector2.Zero, color)
+			: base(font, string.Empty, Vector2.Zero, color, Vector2.Zero)
 		{
 			MaximumSamples = maximumSamples;
 			DockPosition = dockPosition;
@@ -73,7 +73,7 @@ namespace Nez
 
 		public FramesPerSecondCounter(NezSpriteFont font, Color color,
 		                              FPSDockPosition dockPosition = FPSDockPosition.TopRight, int maximumSamples = 100)
-			: base(font, string.Empty, Vector2.Zero, color)
+			: base(font, string.Empty, Vector2.Zero, color, Vector2.Zero)
 		{
 			MaximumSamples = maximumSamples;
 			DockPosition = dockPosition;

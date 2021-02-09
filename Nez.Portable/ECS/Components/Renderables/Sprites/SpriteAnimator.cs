@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework.Content;
 using Nez.Textures;
 
 
@@ -163,7 +164,7 @@ namespace Nez.Sprites
 		public SpriteAnimator AddAnimation(string name, SpriteAnimation animation)
 		{
 			// if we have no sprite use the first frame we find
-			if (Sprite == null && animation.Sprites.Length > 0)
+			if (animation.Sprites.Length > 0)
 				SetSprite(animation.Sprites[0]);
 			_animations[name] = animation;
 			return this;
@@ -174,6 +175,20 @@ namespace Nez.Sprites
 		public SpriteAnimator AddAnimation(string name, float fps, params Sprite[] sprites)
 		{
 			AddAnimation(name, new SpriteAnimation(sprites, fps));
+			return this;
+		}
+
+		public SpriteAnimator ReplaceAnimation(string name, SpriteAnimation animation)
+		{
+			if (_animations.ContainsKey(name))
+			{
+				AddAnimation(name, animation);
+			}
+			else
+			{
+				AddAnimation(name, animation);
+			}
+			
 			return this;
 		}
 
